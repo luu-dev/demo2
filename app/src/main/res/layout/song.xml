@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="song"
+            type="com.example.appsong.model.Song" />
+
+        <variable
+            name="listener"
+            type="com.example.appsong.FragmentListener" />
+
+        <variable
+            name="isPlaying"
+            type="java.lang.Boolean" />
+
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/nutback"
+            android:onClick="@{v->listener.back()}"
+
+            />
+
+        <Button
+            android:id="@+id/bt_share"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/share"
+            android:onClick="@{v->listener.share()}"
+            android:layout_marginLeft="200dp"
+
+            />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:thumb="@{song.id}"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{song.title}"
+        android:textSize="25dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{song.artist}"
+
+        android:layout_marginBottom="10dp"
+        />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/seekbar"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            android:onClick="@{v -> listener.onPrev()}"
+            android:src="@drawable/trai"
+
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            android:onClick="@{v -> listener.onMediaPause()}"
+            android:src="@{isPlaying ? @drawable/pause : @drawable/play}"
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            android:onClick="@{v -> listener.onNext()}"
+            android:src="@drawable/phai"
+            />
+
+
+    </LinearLayout>
+
+
+
+    
+
+
+</LinearLayout>
+    </RelativeLayout>
+</layout>

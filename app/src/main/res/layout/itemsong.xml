@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.example.appsong.model.Song" />
+        <variable
+            name="listener"
+            type="com.example.appsong.adapter.SongAdapter.SongItemClickListener" />
+        <variable
+            name="listenerlong"
+            type="com.example.appsong.adapter.SongAdapter.SongItemClickListener" />
+    </data>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="15dp"
+    android:background="#00BCD4"
+    android:layout_marginBottom="15dp"
+    android:onClick="@{v -> listener.onSongItemClick(item)}"
+
+    >
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/music"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:background="#00BCD4"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.title}"
+            android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{item.artist}" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</layout>

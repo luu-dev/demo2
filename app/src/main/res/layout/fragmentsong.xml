@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="title"
+            type="java.lang.String" />
+        <variable
+            name="isPlaying"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="listener"
+            type="com.example.appsong.FragmentListener" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/lv_song"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:layout_above="@+id/bottom"
+    android:background="#2196F3"/>
+
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#eee"
+        android:padding="16dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:text="@{title}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:lines="1" />
+
+        <SeekBar
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="13dp"
+            android:id="@+id/sb_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:onClick="@{v -> listener.onPrev()}"
+                android:src="@drawable/trai"
+
+                />
+
+
+
+
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:onClick="@{v -> listener.onMediaPause()}"
+                android:src="@{isPlaying ? @drawable/pause : @drawable/play}"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:onClick="@{v -> listener.onNext()}"
+                android:src="@drawable/phai"
+                />
+            <!--                android:src="@drawable/ic_baseline_skip_next"-->
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+</layout>
